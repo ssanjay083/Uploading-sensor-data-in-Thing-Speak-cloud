@@ -71,10 +71,38 @@ Automatically act on your data and communicate using third-party services like T
 
 
 # PROGRAM:
+```
+const int trigPin = 9;
+const int echoPin = 10;
+
+long duration;
+int distance;
+void setup() {
+pinMode(trigPin, OUTPUT);
+pinMode(echoPin, INPUT);
+Serial.begin(9600);
+}
+
+void loop() 
+{
+  digitalWrite(trigPin, LOW);
+  delayMicroseconds(2);
+  digitalWrite(trigPin, HIGH);
+  delayMicroseconds(10);
+  digitalWrite(trigPin, LOW);
+  duration = pulseIn(echoPin, HIGH);
+  distance= duration*0.034/2;
+  Serial.print("Distance: ");
+  Serial.println(distance);
+}
+```
 
 # CIRCUIT DIAGRAM:
+![image](https://github.com/user-attachments/assets/4187c812-a8bb-4283-9b27-d82443ad94b8)
 
 # OUTPUT:
+![image](https://github.com/user-attachments/assets/75d9de4c-8b64-4b8a-94c5-238de2ced565)
+
 
 # RESULT:
 
